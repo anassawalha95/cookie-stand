@@ -5,6 +5,7 @@ body{
     background-repeat: no-repeat;
     
     background-size: cover;
+<<<<<<< HEAD
     
    
     font-family: Arial, Helvetica, sans-serif;
@@ -12,6 +13,11 @@ body{
 
 
     
+=======
+   
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+>>>>>>> 6f7b00d1796c6174e773235d425f3fabc9b5ca58
 }
 
 a{
@@ -122,4 +128,8 @@ a{
 .sales-items  > article > ul > li:last-child {
     font-size: 22px;
     font-weight: bold;
+<<<<<<< HEAD
   }
+=======
+  }
+>>>>>>> 6f7b00d1796c6174e773235d425f3fabc9b5ca58
