@@ -5,19 +5,10 @@ body{
     background-repeat: no-repeat;
     
     background-size: cover;
-<<<<<<< HEAD
     
-   
+  
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-
-
-    
-=======
-   
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
->>>>>>> 6f7b00d1796c6174e773235d425f3fabc9b5ca58
 }
 
 a{
@@ -128,8 +119,24 @@ a{
 .sales-items  > article > ul > li:last-child {
     font-size: 22px;
     font-weight: bold;
-<<<<<<< HEAD
   }
-=======
+  
+
+  table{
+
+    width: auto;
+    height: auto;
+    border: dashed 3px white;
+    text-align: center;
   }
->>>>>>> 6f7b00d1796c6174e773235d425f3fabc9b5ca58
+
+
+  tr{
+      padding: 25px;
+  }
+
+
+  td{
+
+    padding: 10px;
+  }

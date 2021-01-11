@@ -1,399 +1,180 @@
 'use strict'
 
-var seattle, tokyo, dubai, paris, lima, locationTotalSalesAnd;
+var seattle, tokyo, dubai, paris, lima, d = document, mainContainer = d.getElementById("sales-items");
+var laborHours = ["6:00am", "7:00am", "8:00am", "9:00am", "10:00am", "11:00am", "12:00pm", "1:00pm", "2:00pm", "3:00pm", "4:00pm", "5:00pm", "6:00pm", "7:00pm"]
+
+Shop.prototype.calculateAvarageSalesPerHour = function () {
+
+    var randomNumberGenerated, laborHoursArrayLength = laborHours.length, HourlySales = [];
+
+    for (var index = 0; index < laborHoursArrayLength; index++) {
+
+        randomNumberGenerated = Math.floor(Math.random() * (this.maxCustomerNumber - this.minCustomerNumber) * this.averageCookieSales);
+
+        HourlySales[index] = randomNumberGenerated;
+    }
+    return HourlySales
+};
+
+Shop.prototype.calculateTotalSalesPerHour = function () {
+
+    var laborHoursArrayLength = laborHours.length, totalSalesPerDay = 0
+
+    for (var index = 0; index < laborHoursArrayLength; index++) {
+
+        totalSalesPerDay += this.salesPerHour[index];
+
+    }
+    return totalSalesPerDay
+};
 
 
-seattle = {
-    location: "seattle",
-    minCustomerNumber: 23,
-    maxCustomerNumber: 65,
-    averageCookieSales: 6.3,
-    salesPerHour: {
-        '6am': 0,
-        '7am': 0,
-        '8am': 0,
-        '9am': 0,
-        '10am': 0,
-        '11am': 0,
-        '12am': 0,
-        '1pm': 0,
-        '2pm': 0,
-        '3pm': 0,
-        '4pm': 0,
-        '5pm': 0,
-        '6pm': 0,
-        '7pm': 0,
-
-    },
-
-    calculateAvarageSalesPerHour: function () {
-
-        var randomNumberGenerated, total = 0;
 
 
-        for (var key in this.salesPerHour) {
 
-            randomNumberGenerated = Math.floor(Math.random() * (this.maxCustomerNumber - this.minCustomerNumber) * this.averageCookieSales);
 
-            this.salesPerHour[key] = key + ":" + randomNumberGenerated + " cookies ";
+Shop.prototype.tableDataFiller = function (tbody) {
 
-            total += randomNumberGenerated;
+    var tr = d.createElement("tr")
+
+    for (var index = 0; index < laborHours.length + 2; index++) {
+
+        var td = d.createElement("td")
+
+        if (index == 0) {
+            td.textContent = this.location
+
+        } else if (index == 15) {
+            td.textContent = this.totalSalesPerDay
         }
 
-        this.results = "Total: " + [total];
-
-
-    },
-
-
-
-
-
-}
-
-
-
-
-
-
-tokyo = {
-    location: "tokyo",
-    minCustomerNumber: 3,
-    maxCustomerNumber: 24,
-    averageCookieSales: 1.2,
-    salesPerHour: {
-        '6am': 0,
-        '7am': 0,
-        '8am': 0,
-        '9am': 0,
-        '10am': 0,
-        '11am': 0,
-        '12am': 0,
-        '1pm': 0,
-        '2pm': 0,
-        '3pm': 0,
-        '4pm': 0,
-        '5pm': 0,
-        '6pm': 0,
-        '7pm': 0
-
-    },
-
-    results: [],
-
-    calculateAvarageSalesPerHour: function () {
-
-        var randomNumberGenerated, total = 0;
-
-
-        for (var key in this.salesPerHour) {
-
-            randomNumberGenerated = Math.floor(Math.random() * (this.maxCustomerNumber - this.minCustomerNumber) * this.averageCookieSales);
-
-            this.salesPerHour[key] = key + ":" + randomNumberGenerated + " cookies";
-
-            total += randomNumberGenerated;
+        else {
+            td.textContent = this.salesPerHour[index - 1]
         }
 
-        this.results = "Total: " + [total];
 
 
-    },
+        tr.appendChild(td)
+
+    }
+    tbody.appendChild(tr)
+};
 
 
+function Shop(location, maxCustomerNumber, minCustomerNumber, averageCookieSales) {
+    this.location = location;
+
+    this.maxCustomerNumber = maxCustomerNumber;
+    this.minCustomerNumber = minCustomerNumber;
+    this.averageCookieSales = averageCookieSales;
+    this.salesPerHour = this.calculateAvarageSalesPerHour();
+    this.totalSalesPerDay = this.calculateTotalSalesPerHour();
+}
+
+
+seattle = new Shop("Seattle", 65, 23, 6.3);
+
+tokyo = new Shop("Tokyo", 24, 3, 1.2);
+
+dubai = new Shop("Dubai", 38, 11, 3.7);
+
+paris = new Shop("Paris", 38, 20, 2.3);
+
+lima = new Shop("Lima", 16, 2, 4.6);
+
+var locations = [seattle, tokyo, dubai, paris, lima]
+var table = d.createElement("table")
+var thead = d.createElement("thead")
+var tbody = d.createElement("tbody")
+var tfoot = d.createElement("tfoot")
+
+
+function tableTheadFiller(thead) {
+
+    var tr = d.createElement("tr")
+
+    for (var index = 0; index < 16; index++) {
+
+        var td = d.createElement("td")
+        if (index == 0) {
+            td.textContent = ""
+
+        } else
+            if (index == 15) {
+                td.textContent = "Daily Location Total"
+            }
+
+            else {
+                td.textContent = laborHours[index - 1]
+            }
+
+
+
+        tr.appendChild(td)
+
+    }
+
+    thead.appendChild(tr)
 
 }
 
 
-dubai = {
-    location: "dubai",
-    minCustomerNumber: 11,
-    maxCustomerNumber: 38,
-    averageCookieSales: 3.7,
-    salesPerHour: {
-        '6am': 0,
-        '7am': 0,
-        '8am': 0,
-        '9am': 0,
-        '10am': 0,
-        '11am': 0,
-        '12am': 0,
-        '1pm': 0,
-        '2pm': 0,
-        '3pm': 0,
-        '4pm': 0,
-        '5pm': 0,
-        '6pm': 0,
-        '7pm': 0,
 
-    },
+function tableTfootFiller(tfoot, locations) {
 
-    results: [],
+    var tr = d.createElement("tr");
+    var total = 0;
+    var grandTotal = 0
+    for (var index = 0; index < 16; index++) {
 
-    calculateAvarageSalesPerHour: function () {
+        var td = d.createElement("td")
+        if (index == 0) {
+            td.textContent = "Totals"
 
-        var randomNumberGenerated, total = 0;
-
-
-        for (var key in this.salesPerHour) {
-
-            randomNumberGenerated = Math.floor(Math.random() * (this.maxCustomerNumber - this.minCustomerNumber) * this.averageCookieSales);
-
-            this.salesPerHour[key] = key + ":" + randomNumberGenerated + " cookies";
-
-            total += randomNumberGenerated;
+        } else if (index == 15) {
+            td.textContent = grandTotal
         }
 
-        this.results = "Total: " + [total];
+        else {
+
+            for (var index2 = 0; index2 < locations.length; index2++) {
+                console.log(locations)
+                total += locations[index2].salesPerHour[index - 1]
 
 
-    },
-
-
-}
-
-
-
-paris = {
-    location: "paris",
-    minCustomerNumber: 20,
-    maxCustomerNumber: 38,
-    averageCookieSales: 2.3,
-    salesPerHour: {
-        '6am': 0,
-        '7am': 0,
-        '8am': 0,
-        '9am': 0,
-        '10am': 0,
-        '11am': 0,
-        '12am': 0,
-        '1pm': 0,
-        '2pm': 0,
-        '3pm': 0,
-        '4pm': 0,
-        '5pm': 0,
-        '6pm': 0,
-        '7pm': 0,
-
-    },
-
-    results: [],
-
-    calculateAvarageSalesPerHour: function () {
-
-        var randomNumberGenerated, total = 0;
-
-
-        for (var key in this.salesPerHour) {
-
-            randomNumberGenerated = Math.floor(Math.random() * (this.maxCustomerNumber - this.minCustomerNumber) * this.averageCookieSales);
-
-            this.salesPerHour[key] = key + ":" + randomNumberGenerated + " cookies";
-
-            total += randomNumberGenerated;
+            }
+            grandTotal += total;
+            td.textContent = total
+            total = 0
         }
 
-        this.results = "Total: " + [total];
 
 
-    },
+        tr.appendChild(td)
 
+    }
 
-
-}
-
-
-
-lima = {
-    location: "lima",
-    minCustomerNumber: 2,
-    maxCustomerNumber: 16,
-    averageCookieSales: 4.6,
-    salesPerHour: {
-        '6am': 0,
-        '7am': 0,
-        '8am': 0,
-        '9am': 0,
-        '10am': 0,
-        '11am': 0,
-        '12am': 0,
-        '1pm': 0,
-        '2pm': 0,
-        '3pm': 0,
-        '4pm': 0,
-        '5pm': 0,
-        '6pm': 0,
-        '7pm': 0,
-    },
-
-    results: [],
-
-    calculateAvarageSalesPerHour: function () {
-
-        var randomNumberGenerated, total = 0;
-
-
-        for (var key in this.salesPerHour) {
-
-            randomNumberGenerated = Math.floor(Math.random() * (this.maxCustomerNumber - this.minCustomerNumber) * this.averageCookieSales);
-
-            this.salesPerHour[key] = key + ":" + randomNumberGenerated + " cookies";
-
-            total += randomNumberGenerated;
-        }
-
-        this.results = "Total: " + [total];
-
-    },
-}
-
-var d = document, mainContainer = d.getElementById("sales-items");
-
-seattle.calculateAvarageSalesPerHour();
-
-var seattleContainer = d.createElement("article")
-var seattleLocation = d.createElement("h3");
-seattleLocation.innerHTML = seattle.location;
-var seattleSales = d.createElement("ul")
-var seateleItemSalePerHour = d.createElement('li')
-
-
-for (var key in seattle.salesPerHour) {
-
-    seateleItemSalePerHour = d.createElement('li')
-    seateleItemSalePerHour.innerHTML = seattle.salesPerHour[key];
-    seattleSales.appendChild(seateleItemSalePerHour)
+    tfoot.appendChild(tr)
 
 }
 
-seateleItemSalePerHour = d.createElement('li')
-seateleItemSalePerHour.innerHTML = seattle.results;
-seattleSales.appendChild(seateleItemSalePerHour)
-
-seattleContainer.appendChild(seattleLocation)
-seattleContainer.appendChild(seattleSales)
-
-mainContainer.appendChild(seattleContainer)
+tableTheadFiller(thead)
 
 
+seattle.tableDataFiller(tbody);
+tokyo.tableDataFiller(tbody);
+dubai.tableDataFiller(tbody);
+paris.tableDataFiller(tbody);
+lima.tableDataFiller(tbody);
 
 
-tokyo.calculateAvarageSalesPerHour();
+tableTfootFiller(tfoot, locations)
 
-var tokyoContainer = d.createElement("article")
-var tokyoLocation = d.createElement("h3");
-tokyoLocation.innerHTML = tokyo.location;
-var tokyoSales = d.createElement("ul")
-var tokyoItemSalePerHour = d.createElement('li')
+table.appendChild(thead)
+table.appendChild(tbody)
+table.appendChild(tfoot)
 
-
-for (var key in tokyo.salesPerHour) {
-
-    tokyoItemSalePerHour = d.createElement('li')
-    tokyoItemSalePerHour.innerHTML = tokyo.salesPerHour[key];
-    tokyoSales.appendChild(tokyoItemSalePerHour)
-
-}
-
-tokyoItemSalePerHour = d.createElement('li')
-tokyoItemSalePerHour.innerHTML = tokyo.results;
-tokyoSales.appendChild(tokyoItemSalePerHour)
-
-tokyoContainer.appendChild(tokyoLocation)
-tokyoContainer.appendChild(tokyoSales)
-
-mainContainer.appendChild(tokyoContainer)
-
-
-
-
-
-dubai.calculateAvarageSalesPerHour();
-
-var dubaiContainer = d.createElement("article")
-var dubaiLocation = d.createElement("h3");
-dubaiLocation.innerHTML = dubai.location;
-var dubaiSales = d.createElement("ul")
-var dubaiItemSalePerHour = d.createElement('li')
-
-
-for (var key in dubai.salesPerHour) {
-
-    dubaiItemSalePerHour = d.createElement('li')
-    dubaiItemSalePerHour.innerHTML = dubai.salesPerHour[key];
-    dubaiSales.appendChild(dubaiItemSalePerHour)
-
-}
-
-dubaiItemSalePerHour = d.createElement('li')
-dubaiItemSalePerHour.innerHTML = dubai.results;
-dubaiSales.appendChild(dubaiItemSalePerHour)
-
-dubaiContainer.appendChild(dubaiLocation)
-dubaiContainer.appendChild(dubaiSales)
-
-mainContainer.appendChild(dubaiContainer)
-
-
-
-
-
-paris.calculateAvarageSalesPerHour();
-
-var parisContainer = d.createElement("article")
-var parisLocation = d.createElement("h3");
-parisLocation.innerHTML = paris.location;
-var parisSales = d.createElement("ul")
-var parisItemSalePerHour = d.createElement('li')
-
-
-for (var key in dubai.salesPerHour) {
-
-    parisItemSalePerHour = d.createElement('li')
-    parisItemSalePerHour.innerHTML = paris.salesPerHour[key];
-    parisSales.appendChild(parisItemSalePerHour)
-
-}
-
-parisItemSalePerHour = d.createElement('li')
-parisItemSalePerHour.innerHTML = paris.results;
-parisSales.appendChild(parisItemSalePerHour)
-
-parisContainer.appendChild(parisLocation)
-parisContainer.appendChild(parisSales)
-
-mainContainer.appendChild(parisContainer)
-
-
-
-lima.calculateAvarageSalesPerHour();
-
-var limaContainer = d.createElement("article")
-
-
-var limaLocation = d.createElement("h3");
-limaLocation.innerHTML = lima.location;
-
-var limaSales = d.createElement("ul")
-var limaItemSalePerHour = d.createElement('li')
-
-
-for (var key in dubai.salesPerHour) {
-
-    limaItemSalePerHour = d.createElement('li')
-    limaItemSalePerHour.innerHTML = lima.salesPerHour[key];
-    limaSales.appendChild(limaItemSalePerHour)
-
-}
-
-limaItemSalePerHour = d.createElement('li')
-limaItemSalePerHour.innerHTML = lima.results;
-limaSales.appendChild(limaItemSalePerHour)
-
-limaContainer.appendChild(limaLocation)
-limaContainer.appendChild(limaSales)
-
-mainContainer.appendChild(limaContainer)
+mainContainer.appendChild(table)
 
 
 
