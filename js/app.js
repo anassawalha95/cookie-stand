@@ -37,7 +37,7 @@ Shop.prototype.tableDataFiller = function (tbody) {
 
     var tr = d.createElement("tr")
 
-    for (var index = 0; index < laborHours.length + 2; index++) {
+    for (var index = 0; index <= laborHours.length + 2; index++) {
 
         var td = d.createElement("td")
 
@@ -140,7 +140,7 @@ function tableTfootFiller(tfoot, locations) {
             for (var index2 = 0; index2 < locations.length; index2++) {
                 console.log(locations)
                 total += locations[index2].salesPerHour[index - 1]
-
+                //grandTotal += total;
 
             }
             grandTotal += total;

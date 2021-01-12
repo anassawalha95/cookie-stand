@@ -1,21 +1,35 @@
-
+html{
+    height: 100%;
+}
 body{
     background-image: url(https://streatorunlimited.org/wp-content/uploads/2018/03/Amazing-Background-Images-For-Websites-.jpg);
-
     background-repeat: no-repeat;
     
-    background-size: cover;
+    
     
   
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: #6F260E;
+    height: 100%;
+    
 }
+
 
 a{
-    color: white;
+    color: black;
+    letter-spacing: 3px;
     text-decoration: none;
 }
+.container {
 
+    background-image: url(https://cdn.dribbble.com/users/29329/screenshots/3821151/image.png);
+    background-repeat: repeat;
+
+    position: relative;
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}  
 .main-nav{
 
     display: flex;
@@ -42,9 +56,9 @@ a{
 .main-nav-logo{
     font-family: 'Redressed', cursive;
 
-    font-size: 32px;
+    font-size: 40px;
     font-weight: bold;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 1);
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 1); */
 }
 
 
@@ -57,22 +71,29 @@ a{
 
     font-size: 20px;
 
+    color: black;
+    transition: 0.3s;
     
+}
+.nav-items:hover{
+
+    color: white;
 
 }
 
 .nav-items>li{
-    border-bottom: solid 7px #3C3B36;
+   padding: 10px 20px;
     border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
-
+    box-shadow: 0 4px 8px 0 rgba(235, 190, 67, 1), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
+    
     transition: 0.3s;
 }
 
 .nav-items>li:hover{
-    font-size: 33px;
-    background-color: rgba(47, 44, 40, 0.9);
-
+    font-size: 30px;
+    font-style: italic;
+    background-color: rgba(235, 190, 67, 1);
+    color: white;
     box-shadow: 0 4px 8px 0 rgba(235, 190, 67, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 1);
 
 }
@@ -123,20 +144,113 @@ a{
   
 
   table{
-
+    padding: 25px 10px ;
     width: auto;
     height: auto;
-    border: dashed 3px white;
+    border: dashed 4px white;
     text-align: center;
+    color: white;
+
+    background-color: rgba(87,80,72,0.7);
   }
 
 
   tr{
-      padding: 25px;
+      
+      padding: 15px;
   }
 
 
   td{
 
-    padding: 10px;
+    padding: 5px;
+  }
+
+  .working-hour{
+    background-color: rgba(87,80,72,0.7);
+    color: white;
+    font-weight: 800;
+    font-family: 'Sacramento', cursive;
+  
+    padding: 22px;
+  }
+  .working-hour h1{
+      font-size: 40px;
+        padding: 20px;
+        margin-left: 10px;
+        border-left: solid 5px rgba(235, 190, 67, 1);
+  }
+
+  .working-hour p{
+    font-size: 32px;
+    padding: 15px;
+    
+    border-left: rgba(235, 190, 67, 1);;
+  
+}
+
+.working-hour ul{
+    font-family:  cursive;
+    font-size: 15px;
+
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+ 
+}
+
+.working-hour ul li{
+
+    background-color: rgba(235, 190, 67, 1);
+    padding: 15px;
+    border-radius: 3px;
+
+
+
+ 
+}
+
+
+
+  footer{
+      position: absolute;
+      bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 30px;
+    width: 100%;
+  }
+  footer section {
+color: white;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
+      background-color: rgba(235, 190, 67, 1);
+     text-align: center;
+     border-radius: 5px;
+  }
+
+  footer  section h3{
+    font-weight: 700;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+  }
+
+
+
+  .products {
+        
+        gap: 25px;
+      width: 100%;
+        display: grid;
+        grid-template-columns: 35%, 35%, 35%;
+        grid-template-rows: 35%, 35%, 35%;
+
+  }
+
+
+  .products > .item{
+
+
   }
