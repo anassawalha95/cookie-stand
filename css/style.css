@@ -1,11 +1,11 @@
 html{
-    height: 100%;
+height: auto
 }
 body{
     background-image: url(https://streatorunlimited.org/wp-content/uploads/2018/03/Amazing-Background-Images-For-Websites-.jpg);
     background-repeat: no-repeat;
     
-    
+    background-size: cover;
     
   
     font-family: Arial, Helvetica, sans-serif;
@@ -171,6 +171,7 @@ a{
     color: white;
     font-weight: 800;
     font-family: 'Sacramento', cursive;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
   
     padding: 22px;
   }
@@ -212,8 +213,12 @@ a{
 
 
 
-  footer{
-      position: absolute;
+  footer div{
+      
+      background-color: rgba(87,80,72,0.7);;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
       bottom: 0;
     display: flex;
     justify-content: center;
@@ -221,15 +226,17 @@ a{
     column-gap: 30px;
     width: 100%;
   }
-  footer section {
+  footer div section  {
 color: white;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
       background-color: rgba(235, 190, 67, 1);
      text-align: center;
      border-radius: 5px;
+     margin-top: 25px;
+     margin-bottom: 25px;
   }
 
-  footer  section h3{
+  footer  div section h3{
     font-weight: 700;
     margin-top: 10px;
     margin-left: 10px;
@@ -240,17 +247,106 @@ color: white;
 
 
   .products {
-        
-        gap: 25px;
+      margin-top: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
+    background-color: rgba(87,80,72,0.7);
+  
       width: 100%;
         display: grid;
-        grid-template-columns: 35%, 35%, 35%;
-        grid-template-rows: 35%, 35%, 35%;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr ;
+       gap: 25px 25px;
+
+  }
+ .item{
+      padding: 25px;
+  }
+ .Item-img{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
+      display: block;
+      margin: auto;
+      border-radius: 5px;
+      width: 250px;
+      height: 150px;
+      margin-bottom: 15px;
+      background-color: rgba(235, 190, 67, 1);
+
 
   }
 
+  .Item-name{
 
-  .products > .item{
+    font-weight: 700;
+    margin-top: 10px;
 
-
+    margin-bottom: 10px;
+    color: white;
+    border-radius: 5px;
+    background-color:#0069D9;
+    text-align: center;
+    padding: 5px;
   }
+
+  .item >div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+  }
+.item-button {
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+
+.add{
+    background-color:#0069D9;
+    transition: 0.3s;
+
+}
+.add:hover{
+    background-color:#025bbb;
+    
+}
+.plus{
+    background-color: #218838;
+    transition: 0.3s;
+}
+
+.plus:hover{
+
+    background-color: #1c722f;
+}
+
+.minus{
+
+    background-color: #C82333;
+    transition: 0.3s;
+}
+
+.minus:hover{
+
+    background-color: #9b1d29;
+}
+
+.Item-quantity{
+    
+    text-align: center;
+    width:20px;
+}
+
+
+.about-us{
+    display: flex;
+
+}
+
+.about-text{
+    font-family: 'Sacramento', cursive;
+    font-size: 32px;
+    padding: 30px;
+    color: white;
+}
