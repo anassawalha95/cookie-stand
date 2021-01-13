@@ -150,7 +150,7 @@ a{
     border: dashed 4px white;
     text-align: center;
     color: white;
-
+    margin-top: 20px;
     background-color: rgba(87,80,72,0.7);
   }
 
@@ -349,4 +349,85 @@ color: white;
     font-size: 32px;
     padding: 30px;
     color: white;
+}
+
+
+.addNewStore{
+    display: flex;
+    justify-content: center;
+    padding: 25px 40px;
+    color: white;
+    background-color: rgba(87,80,72,0.7);
+   
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 3px;
+    
+}
+
+.addNewStore fieldset{
+   
+    padding: 20px;
+    border: solid 4px white;
+    border-radius: 5px;
+
+    }
+
+.addNewStore legend{
+     
+    font-size: 32px;
+}
+    
+.addNewStore label{
+   
+    display: block;
+    
+    margin-top: 20px;
+    font-size:20px;
+}
+
+
+
+.addNewStore input[type="text"]{
+
+    border: solid 4px white;
+
+    border-radius: 5px;
+
+    padding: 5px 8px;
+    width: 200px;
+    box-shadow: -5px 1px 0px 0 rgb(26 48 194 / 71%), -10px 10px 20px 0 rgba(0, 0, 0, 1);
+    height: 25px;
+
+    
+
+}
+
+.addNewStore input[type="text"]:focus{
+
+    outline: #0276f1;
+    border:solid 4px #0276f1;
+}
+
+
+.addNewStore input[type="submit"]{
+    padding:16px 0px;
+    width: 225px;
+    margin-top:25px;
+    vertical-align: middle;
+    border-radius: 5px;
+    box-shadow: 0 3px 0px 0 rgba(0, 0, 0, 0.2), 0 9px 20px 0 rgba(0, 0, 0, 0.6);
+
+    background-color: #0069D9;
+    border: none;
+    color: white;
+    outline: white;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+
+.addNewStore input[type="submit"]:hover{
+    
+    background-color: #004186;
+    
 }

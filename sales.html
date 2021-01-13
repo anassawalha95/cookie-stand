@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@700&family=Redressed&display=swap"
         rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -23,6 +26,30 @@
             </ul>
         </nav>
 
+        <form action="get" id="newStore" class="addNewStore">
+
+            <fieldset>
+                <legend> Add A New Store</legend>
+                <br>
+                <label for="location">Location:</label> <br>
+                <input type="text" id="location" placeholder="Add A Location" name="location" required>
+                <br>
+                <label for="minCustomerNumber"> Minimum Customer Number:</label><br>
+                <input type="text" id="minCustomerNumber" placeholder="Minimum Customer Number" name="minCustomerNumber"
+                    required>
+                <br>
+                <label for="maxCustomerNumber">Maximum Customer Number:</label><br>
+                <input type="text" id="maxCustomerNumber" placeholder="Maximum Customer Number" name="maxCustomerNumber"
+                    required>
+                <br>
+                <label for="AvgSalesPerHour">Avarage Sales Per Hour:</label><br>
+                <input type="text" id="AvgSalesPerHour" placeholder="Avarage Sales Per Hour" name="AvgSalesPerHour"
+                    required>
+                <br>
+                <input type="submit" id="submit">
+
+            </fieldset>
+        </form>
 
         <main>
             <section class="sales-items" id="sales-items">
